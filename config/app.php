@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://cryptic-wildwood-37905.herokuapp.com/'),
 
     /*
     |--------------------------------------------------------------------------
