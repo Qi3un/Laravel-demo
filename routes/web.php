@@ -12,5 +12,6 @@
 */
 
 Route::get('/', function () {
+	echo "this is route '/'";
     return response()->json([ 'hello' => 'world' ]);
 });
