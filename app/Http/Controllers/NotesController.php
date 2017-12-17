@@ -61,15 +61,15 @@ class NotesController extends Controller {
 
 		/* update specified columns */
 		$updatedRow = 0;
-		if($request->title) {
+		if($request->title != null) {
 			$updatedRow = DB::table('notes')->where("id", $id)
 				->update(["title" => $request->title, "updated_at" => date("Y-m-d H:i:s")]);
 		}
-		if($request->description) {
+		if($request->description != null) {
 			$updatedRow = DB::table('notes')->where("id", $id)
 				->update(["description" => $request->description, "updated_at" => date("Y-m-d H:i:s")]);
 		}
-		if($request->completed) {
+		if($request->completed != null) {
 			$updatedRow = DB::table('notes')->where("id", $id)
 				->update(["completed" => ($request->completed === '1'), "updated_at" => date("Y-m-d H:i:s")]);
 		}
