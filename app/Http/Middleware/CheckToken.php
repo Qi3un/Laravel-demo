@@ -18,6 +18,7 @@ class CheckToken
      */
     public function handle($request, Closure $next)
     {
+        error_log(print_r("checkToken", true));
         $token = $request->header("Authorization");
         if(empty($token)) {
             return response([ "error" => "unauthorized request" ], 401);
