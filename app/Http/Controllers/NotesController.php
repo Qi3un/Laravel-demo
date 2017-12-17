@@ -71,7 +71,7 @@ class NotesController extends Controller {
 		}
 		if($request->completed) {
 			$updatedRow = DB::table('notes')->where("id", $id)
-				->update(["completed" => $request->completed, "updated_at" => date("Y-m-d H:i:s")]);
+				->update(["completed" => intval($request->completed), "updated_at" => date("Y-m-d H:i:s")]);
 		}
 
 		/* if updated, return updated note */
