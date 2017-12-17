@@ -20,13 +20,13 @@ class CheckToken
     {
         $token = $request->header("Authorization");
         if(empty($token)) {
-            return response([ "error" => "unauthorized request" ], 400);
+            return response([ "error" => "unauthorized request" ], 401);
         }
 
         $token = substr($token, 7);
         $user = DB::table('users')->where("api_token", $token);
         if($user->count() == 0) {
-            return response([ "error" => "invalid token" ], 400);
+            return response([ "error" => "invalid token" ], 401);
         }
         else {
             $request->user_id = $user->value('id');

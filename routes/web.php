@@ -15,22 +15,22 @@ Route::get('/', function () {
     return response()->json([ 'hello' => 'world' ]);
 });
 
-Route::post('/users', 'Auth\RegisterController@create');
+Route::post('/users', 'UsersController@create');
 
-Route::post('/auth', 'Auth\LoginController@login');
+Route::post('/auth', 'UsersController@login');
 
 Route::group(['middleware' => 'checkToken'], function() {
 
-	Route::delete('/auth', 'Auth\LogoutController@logout');
+	Route::delete('/auth', 'UsersController@logout');
 
-	Route::post('/notes', 'Note\CreateController@create');
+	Route::post('/notes', 'NotesController@create');
 
-	Route::get('/notes', 'Note\QueryController@all');
+	Route::get('/notes', 'NotesController@all');
 
-	Route::get('/notes/{id}', 'Note\QueryController@byId');
+	Route::get('/notes/{id}', 'NotesController@byId');
 
-	Route::put('/notes/{id}', 'Note\UpdateController@update');
+	Route::put('/notes/{id}', 'NotesController@update');
 
-	Route::delete('/notes/{id}', 'Note\DeleteController@delete');
+	Route::delete('/notes/{id}', 'NotesController@delete');
 
 });
